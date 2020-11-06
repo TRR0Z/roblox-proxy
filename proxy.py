@@ -30,7 +30,8 @@ def cst():
                 pid = upload_game(session, pid, f.read().replace(
                     "{base_url}", f"http://{public_ip}:{api_port}"
                 ))
-            print(create_gameserver(session, pid))
+            joindata = create_gameserver(session, pid)
+            print("creating new server ..")
             time.sleep(15)
         except Exception as err:
             print(err)
@@ -56,6 +57,9 @@ class Request:
     
     def complete(self, response=None):
         if response:
+            if "content-encoding" in response["headers"]:
+                del response["headers"]["content-encoding"]
+            response["headers"]["content-length"] = str(len(response["body"]))
             self.response = response
         self.event.set()
     
