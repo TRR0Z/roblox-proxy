@@ -12,7 +12,7 @@ pip install requests
 pip install bs4
 ```
 
-# Usage\
+# Usage
 Port forward TCP :80
 
 ```bash
