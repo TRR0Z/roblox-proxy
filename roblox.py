@@ -27,4 +27,4 @@ def upload_game(session, pid, data):
     resp = session.request(
         "POST", f"https://data.roblox.com/Data/Upload.ashx?assetid={pid}",
         data=data, headers={"content-type": "text/xml"})
-    return resp.text.decode("UTF-8")
+    return resp.text
