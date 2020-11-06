@@ -8,6 +8,10 @@ Windows only, for now.
 # Features
 - Expandable IP pool, just open more gameservers using game.rbxlx
 
+# TODO
+- Randomization of game.rbxlx, to prevent future mass-bans based on hashes
+- Reuse of previously generated games
+
 # Setup
 ```bash
 pip install -U git+https://github.com/h0nde/rockblox.git
