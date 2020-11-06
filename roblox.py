@@ -7,7 +7,7 @@ def create_gameserver(session, pid):
 
 def create_game(session, name):
     rvt = BeautifulSoup(session.request(
-        "GET", "https://www.roblox.com/places/create/").data, "html.parser") \
+        "GET", "https://www.roblox.com/places/create/").text, "html.parser") \
         .find("input", {"name": "__RequestVerificationToken"}).get("value")
     resp = session.request(
         "POST", "https://www.roblox.com/places/create/",
