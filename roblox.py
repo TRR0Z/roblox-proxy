@@ -17,7 +17,7 @@ def create_game(session, name):
             "TemplateID": "95206881"
         }
     )
-    if resp.status!=302: raise Exception("Failed to create new game")
+    if resp.status_code!=302: raise Exception("Failed to create new game")
     soup = BeautifulSoup(session.request("GET", "https://www.roblox.com/develop?Page=universes&close=1").text,
                          "html.parser")
     pid = soup.find(None, {"class": "start-place-url"}).get("href").split("games/")[1].split("/")[0]
