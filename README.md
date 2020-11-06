@@ -3,6 +3,8 @@ Creates a proxy server, utilizing HttpService to mask requests behind Roblox gam
 
 This version is lazily thrown together for demo. purposes, expect a more efficient rewrite.
 
+Windows only, for now.
+
 # Setup
 ```bash
 pip install -U git+https://github.com/h0nde/rockblox.git
