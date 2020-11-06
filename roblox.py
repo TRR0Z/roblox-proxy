@@ -15,8 +15,7 @@ def create_game(session, name):
             "__RequestVerificationToken": rvt,
             "Name": name,
             "TemplateID": "95206881"
-        },
-        mode="url"
+        }
     )
     if resp.status!=302: raise Exception("Failed to create new game")
     soup = BeautifulSoup(session.request("GET", "https://www.roblox.com/develop?Page=universes&close=1").data,
@@ -27,5 +26,5 @@ def create_game(session, name):
 def upload_game(session, pid, data):
     resp = session.request(
         "POST", f"https://data.roblox.com/Data/Upload.ashx?assetid={pid}",
-        data=data, mode="xml")
+        data=data, headers={"content-type": "text/xml"})
     return resp.data.decode("UTF-8")
