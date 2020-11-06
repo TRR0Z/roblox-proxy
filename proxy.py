@@ -1,11 +1,11 @@
 from mitmproxy import proxy, options, http
 from mitmproxy.tools.dump import DumpMaster
 from roblox import create_game, upload_game, create_gameserver
-from rockblox import Roblox, RobloxClient
 from flask import Flask, request
 from threading import Thread, Event
 from queue import Queue, Empty
 from mitmproxy.flow import Error
+import rockblox
 import requests
 import secrets
 import sys
@@ -15,7 +15,7 @@ request_cache = dict()
 request_queue = Queue()
 app = Flask("x")
 
-session = Roblox(sys.argv[1], user_agent="Roblox/WinInet")
+session = rockblox.Session(sys.argv[1], user_agent="Roblox/WinInet")
 
 public_ip = requests.get("https://api.ipify.org?format=json").json()["ip"]
 api_port = 80
