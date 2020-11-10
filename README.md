@@ -3,8 +3,6 @@ Creates a proxy server, utilizing HttpService to mask requests behind Roblox gam
 
 This version is lazily thrown together for demo. purposes, expect a more efficient rewrite.
 
-Windows only, for now.
-
 # Features
 - Expandable IP pool, just open more gameservers using game.rbxlx
 
